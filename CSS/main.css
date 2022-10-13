@@ -1,5 +1,11 @@
 
+:root{
+    --specal-color:tomato;
+    --second-color:#551CF1;
+    --light-color:white;
+    --dark-color:black;
 
+}
 /* is for class selector*/
 .container{
     max-width: 900px;
@@ -27,11 +33,56 @@ main > p{
 
 /* + is adjacent combintor*/
 h2 +p{
-    background-color: black;
-    color: white;
+    background-color: var(--dark-color);
+    color: var(--light-color);
     padding: 1rem;
 }
 /* ~ is sibling combintor*/
 .stars span:hover ~ span{
     opacity: .5;
+}
+.stars span{
+    cursor: pointer;
+}
+
+/* [] is attribute selector*/
+a[href="#"]{
+color: var(--specal-color);
+}
+a[href^="http"]{
+    border-left: 4px solid var(--second-color);
+}
+/* state related pesudo classes*/
+nav a,
+nav a:link,
+nav a:visited{
+display: inline-block;
+text-decoration: none;
+text-transform: uppercase;
+transition: transform .5s;
+}
+nav a:hover,
+nav a:hover,
+nav a:focus{
+    text-decoration: underline;
+    transform: scale(1.4);
+}
+nav a:active{
+    transform: scale(1.4) translateX(10px);
+}
+
+/* pseudo elemant*/
+a[href$=".pdf"]::after{
+    content: "\2913";
+    font-size: 1.25rem;
+    color: var(--specal-color);
+}
+h2+p::first-line{
+    color: var(--specal-color);
+}
+h3+p::first-letter{
+    background-color: var(--second-color);
+    color: var(--light-color);
+    padding: .25rem;
+    margin-right: 10rem;
 }
